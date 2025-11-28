@@ -94,11 +94,11 @@ a {
 
 .section {
   padding: 3rem 0;
-  background: #f9fafb;
+  background: #FF7F50;
 }
 
 .section.alt {
-  background: #00B7EB;
+  background: #FF7F50;
 }
 
 .section h2 {
