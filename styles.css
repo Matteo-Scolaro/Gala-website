@@ -119,6 +119,20 @@ a {
   margin-right: 0.75rem;
 }
 
+/* Make hero buttons stand out clearly */
+.hero .btn {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.hero .btn:hover {
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
+  transform: translateY(-1px);
+}
+
 /* SECTIONS – light, elegant blocks over navy background */
 
 .section {
