@@ -1,3 +1,20 @@
+/* =========================
+   CORE THEME VARIABLES
+   ========================= */
+:root {
+  --navy: #0C1B33;
+  --navy-dark: #050916;
+  --gold: #D6A676;
+  --gold-dark: #C18A55;
+  --ivory: #FFF7F3;
+  --ivory-soft: #F6ECE3;
+  --coral-accent: #FF7F50;
+  --text-dark: #1F2933;
+  --text-light: #F9FAFB;
+}
+
+/* GLOBAL RESET */
+
 *,
 *::before,
 *::after {
@@ -8,8 +25,8 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
-  color: #1f2933;
-  background-color: #00B7EB;
+  color: var(--text-dark);
+  background-color: var(--navy);
 }
 
 a {
@@ -30,9 +47,10 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #ffffffcc;
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid #e5e7eb;
+  background: rgba(12, 27, 51, 0.9); /* semi-transparent navy */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(214, 166, 118, 0.6); /* soft gold line */
+  color: var(--text-light);
 }
 
 .nav {
@@ -45,29 +63,34 @@ a {
 .logo {
   font-weight: 700;
   font-size: 1.1rem;
+  letter-spacing: 0.04em;
 }
 
 .nav nav a {
   margin-left: 1rem;
   font-size: 0.95rem;
+  opacity: 0.9;
 }
 
 .nav nav a:hover {
+  opacity: 1;
   text-decoration: underline;
 }
 
-/* HERO */
+/* HERO – deep navy, gold accent */
 
 .hero {
   padding: 4rem 0 3rem;
-  background: linear-gradient(135deg, #1f2937, #4b5563);
-  color: #f9fafb;
+  background: radial-gradient(circle at top left, rgba(214, 166, 118, 0.25), transparent 55%),
+              linear-gradient(135deg, var(--navy-dark), var(--navy));
+  color: var(--text-light);
 }
 
 .hero-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .hero h1 {
@@ -78,32 +101,43 @@ a {
 .hero-subtitle {
   font-size: 1.05rem;
   max-width: 32rem;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
+  opacity: 0.95;
 }
 
 .hero-details {
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
+  color: rgba(249, 250, 251, 0.9);
+}
+
+.hero-details strong {
+  color: var(--gold);
 }
 
 .hero-buttons .btn {
   margin-right: 0.75rem;
 }
 
-/* SECTIONS */
+/* SECTIONS – light, elegant blocks over navy background */
 
 .section {
   padding: 3rem 0;
-  background: #FF7F50;
+  background: var(--ivory);
 }
 
 .section.alt {
-  background: #00B7EB;
+  background: var(--ivory-soft);
 }
 
 .section h2 {
   margin-top: 0;
   margin-bottom: 1rem;
+  color: var(--navy);
+}
+
+.section p {
+  color: var(--text-dark);
 }
 
 .two-columns {
@@ -117,6 +151,17 @@ a {
   margin-top: 1.5rem;
 }
 
+/* Small coral accent line you can use under headings if desired */
+.section h2::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  border-radius: 999px;
+  margin-top: 0.4rem;
+  background: linear-gradient(to right, var(--gold), var(--coral-accent));
+}
+
 /* BUTTONS */
 
 .btn {
@@ -127,25 +172,36 @@ a {
   font-size: 0.95rem;
   border: 1px solid transparent;
   text-align: center;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease,
+              box-shadow 150ms ease, transform 80ms ease;
 }
 
+/* Primary: gold on navy */
+
 .btn.primary {
-  background: #2563eb;
-  color: #ffffff;
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 .btn.primary:hover {
-  background: #1d4ed8;
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
+  transform: translateY(-1px);
 }
 
+/* Secondary: outline navy */
+
 .btn.secondary {
-  background: #ffffff;
-  color: #111827;
-  border-color: #e5e7eb;
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
 }
 
 .btn.secondary:hover {
-  background: #f3f4f6;
+  background: rgba(12, 27, 51, 0.06);
 }
 
 /* FOOTER */
@@ -154,7 +210,11 @@ a {
   padding: 1.75rem 0;
   text-align: center;
   font-size: 0.85rem;
-  color: #000000;
-  border-top: 1px solid #e5e7eb;
-  background: #FF7F50;
+  color: var(--text-light);
+  border-top: 1px solid rgba(214, 166, 118, 0.6);
+  background: var(--navy-dark);
+}
+
+.site-footer a {
+  color: var(--gold);
 }
