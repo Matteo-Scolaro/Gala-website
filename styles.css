@@ -2,9 +2,9 @@
    CORE THEME VARIABLES
    ========================= */
 :root {
-  --navy: #0C1B33;
-  --navy-dark: #050916;
-  --gold: #D6A676;
+  --navy: #0C1B33; /* we have to change main colour to this: F7E7CE */
+  --navy-dark: #050916; /* Change to 660000*/
+  --gold: #D6A676; /* */
   --gold-dark: #C18A55;
   --ivory: #FFF7F3;
   --ivory-soft: #F6ECE3;
